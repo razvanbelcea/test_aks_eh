@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>eathappy.order.api</name>
+    </assembly>
+    <members>
+        <member name="T:eathappy.order.api.Controllers.AccountController">
+            <summary>
+            Controller for account management
+            </summary>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{eathappy.order.domain.User.User},AutoMapper.IMapper,eathappy.order.api.JwtFeatures.JwtHandler)">
+            <summary>
+            Constructor of account controller
+            </summary>
+            <param name="userManager"></param>
+            <param name="mapper"></param>
+            <param name="jwtHandler"></param>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.AccountController.RegisterUser(eathappy.order.domain.Models.UserRegistrationDto)">
+            <summary>
+            Creates a new account
+            </summary>
+            <param name="userRegistrationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.AccountController.Login(eathappy.order.domain.Models.UserAuthenticationDto)">
+            <summary>
+            Generates login token
+            </summary>
+            <param name="userAuthenticationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eathappy.order.api.Controllers.ArticleController">
+            <summary>
+            Article controller
+            </summary>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.#ctor(Microsoft.Extensions.Logging.ILogger{eathappy.order.api.Controllers.ArticleController},eathappy.order.business.Interfaces.IArticleService)">
+            <summary>
+            Controller
+            </summary>
+            <param name="logger"></param>
+            <param name="articleService"></param>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.GetAll(System.Nullable{System.Guid})">
+            <summary>
+            This method will get all the articles from a given order
+            </summary>
+            <returns>A list of article results</returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.CreateArticleLine(System.Nullable{System.Guid},eathappy.order.domain.Dtos.Local.Parameter.ArticleDto)">
+            <summary>
+            This method will add a new article into the order
+            </summary>
+            <param name="orderId">The parent order id</param>
+            <param name="article">Article line object (check Models section for the details)</param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.AdjustArticleQuantity(System.Nullable{System.Guid},System.Int32)">
+            <summary>
+            This method will update the quantity of the article
+            </summary>
+            <param name="articleId">The article id</param>
+            <param name="quantity">New quantity</param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.UpdateArticleDeliveryDate(System.Nullable{System.Guid},System.DateTime)">
+            <summary>
+            This method will update the delivery date of the article
+            </summary>
+            <param name="articleId">The article id</param>
+            <param name="deliveryDate">New delivery date</param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.ArticleController.ReplaceArticle(System.Nullable{System.Guid},eathappy.order.domain.Dtos.Local.Parameter.ArticleDto)">
+            <summary>
+            This method will update the delivery date of the article
+            </summary>
+            <param name="articleId">The article id</param>
+            <param name="replacementArticle">Replacement article</param>
+            <returns></returns>
+        </member>
+        <member name="T:eathappy.order.api.Controllers.OrderController">
+            <summary>
+            Order controller
+            </summary>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.#ctor(Microsoft.Extensions.Logging.ILogger{eathappy.order.api.Controllers.OrderController},eathappy.order.business.Interfaces.IOrderService,AutoMapper.IMapper)">
+            <summary>
+            Constructor of order controller
+            </summary>
+            <param name="logger"></param>
+            <param name="orderService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.GetByOrderId(System.Nullable{System.Guid})">
+            <summary>
+            Gets the order by order id
+            </summary>
+            <param name="orderId">The order id</param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.GetAllOrders(eathappy.order.domain.Order.Pagination.OrderParameters)">
+            <summary>
+            Gets paginated orders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.CreateOrder(eathappy.order.domain.Dtos.Local.Parameter.OrderDto)">
+            <summary>
+            Creates a new order
+            </summary>
+            <param name="orderDto">The order data</param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.CreateFromFlinkCsv(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Create an order from Flink csv
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eathappy.order.api.Controllers.OrderController.UpdateOrder(eathappy.order.domain.Dtos.Local.Parameter.OrderUpdateDto)">
+            <summary>
+            Update order
+            </summary>
+            <param name="orderDto">The order data</param>
+            <returns></returns>
+        </member>
+        <member name="T:eathappy.order.api.Filters.SwaggerFileOperationFilter">
+            <summary>
+            Swagger filter for file upload
+            </summary>
+        </member>
+        <member name="M:eathappy.order.api.Filters.SwaggerFileOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Apply filter
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+    </members>
+</doc>

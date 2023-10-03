@@ -1,0 +1,22 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: eathappyorderservice 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eathappyorderservice
+  template:
+    metadata:
+      labels:
+        app: eathappyorderservice 
+    spec:
+      containers:
+        - name: eathappyorderservice 
+          image: qslimageregistry.azurecr.io/eathappyorderservice
+          ports:
+          - containerPort: 80
+          env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Production"          
